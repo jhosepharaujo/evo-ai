@@ -154,7 +154,7 @@ def create_client_with_user(
 
         # Use client ID to create the associated user
         user, message = create_user(
-            db, user_data, is_admin=False, client_id=client.id, auto_verify=False
+            db, user_data, is_admin=False, client_id=client.id, auto_verify=True
         )
 
         if not user:
