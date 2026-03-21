@@ -26,7 +26,7 @@ run-prod:
 
 # Command to clean cache in all project folders
 clear-cache:
-	rm -rf ~/.cache/uv/environments-v2/* && find . -type d -name "__pycache__" -exec rm -r {} +
+	uv cache clean && find . -type d -name "__pycache__" -exec rm -r {} +
 
 # Command to create a new migration and apply it
 alembic-migrate:
@@ -77,10 +77,10 @@ format:
 
 # Virtual environment and installation commands
 venv:
-	python -m venv venv
+	uv venv
 
 install:
-	pip install -e .
+	uv sync --no-dev
 
 install-dev:
-	pip install -e ".[dev]"
+	uv sync
